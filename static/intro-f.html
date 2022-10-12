@@ -17,7 +17,7 @@
     var y = document.getElementById("age").value;
     // Call the URL that goes to the function intro() in python and give name and age as arguments in the url
     // We should probably change this to a relative path if that's possible?
-    fetch("https://python-bigdata.azurewebsites.net/" + x + "/" + y)
+    fetch("https://python-bigdata.azurewebsites.net/intro/" + x + "/" + y)
       // The then method will save the return value of intro() (the id) in the variable 'data'
       .then(res => res.text()).then(data => {
         // Here we set a new item in local storage
