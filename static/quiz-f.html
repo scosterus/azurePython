@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="Mystyle.css">
+    <title>SkillAPP</title>
+  </head>
+  <script>
+    function set_question() {
+      qid = localStorage.getItem("question");
+      // if all questions have been answered go to results page
+      if (qid == 11) {
+        onclick=window.location.href='fits-f.html';
+      } else {
+        fetch("http://127.0.0.1:5000/quiz/"+qid)
+        .then(res => res.text()).then(data => {
+          question = data
+          split_question = question.split(';');
+          document.getElementById("question").innerHTML = split_question[1];
+          document.getElementById("a").innerHTML = split_question[2];
+          document.getElementById("b").innerHTML = split_question[3];
+          document.getElementById("c").innerHTML = split_question[4];
+          localStorage.setItem("question", parseInt(qid) + 1);
+        });
+      }
+    }
+
+    function paginafits(){
+      onclick=window.location.href='fits-f.html';
+    }
+  </script>
+  <body>
+    <div class="navbar_colour">
+    <nav>
+      <a style="font-family:Verdana" href="index-f.html" class="nav_button"><b>SkillAPP</b></a>
+      <a style="font-family:Verdana" href="about-f.html" class="right_style">About</a>
+    </nav>
+    <hr>
+    </div>
+    <div class="content">
+        <h1 style="font-family:Verdana" id="question">Your friends asks you if you'd like to sign up for a charity run with them. What do you say?</h1>
+        <div class="centreren"><br><br>
+            <button type="button" id="a" onclick="set_question()" class="button button:hover" style="margin:15px;" value="4">Absolutely!</button>
+            <button type="button" id="b" onclick="set_question()" class="button button:hover" style="margin:15px;" value="5">If it's no more than 5 km, you'll consider it.</button>
+            <button type="button" id="c" onclick="set_question()" class="button button:hover" style="margin:15px;" value="7">You'll cheer them on from the sidelines.</button>
+            </div>
+      </div>
+        <div class="footer">
+      <p></p>
+    </div>
+  </body>
+</html>
