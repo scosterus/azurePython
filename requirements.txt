@@ -4,4 +4,3 @@ flask_cors
 pandas
 numpy
 seaborn
-matplotlib.pyplot
