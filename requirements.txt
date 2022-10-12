@@ -1,7 +1,6 @@
 flask
 mysql.connector
 flask_cors
-turtle
 pandas
 numpy
 seaborn
