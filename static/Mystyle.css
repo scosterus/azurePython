@@ -1,9 +1,14 @@
+@media only screen and (min-device-width: 480px){}
 
 h1 {
-    color: #886cab;
+    color: #4A8994;
     font-family:Verdana;
     text-align: center;
     padding: 10px;}
+
+a {
+    font-family:Verdana;
+}
 
 p {
     color: rgb(54, 53, 53);
@@ -11,13 +16,19 @@ p {
     font-size: 14px;}
 
 h1.left {
-    color: #886cab;
+    color: #4A8994;
     font-family:Verdana;
     text-align: left;
     padding: 10px;}
 
 .right_style {
-    float:right;
+    float: right;
+    color: rgb(96, 96, 96); 
+    background-color: transparent; 
+    text-decoration: none;}
+
+.left_style {
+    float: left;
     color: rgb(96, 96, 96); 
     background-color: transparent; 
     text-decoration: none;}
@@ -25,22 +36,32 @@ h1.left {
 .centreren{
     text-align: center;}
 
+.centrerenver{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);}
+
 .navbar_colour{
     position: sticky;
-    top: 0;
     background-color:rgb(255, 255, 255);
-    font-size: 20px;}
+    font-size: 20px;
+    z-index: 1100;
+    padding-top: 10px;
+    margin-top: -10px;}
 
 .nav_button {
     color: rgb(96, 96, 96);
-    font-size: 20px; 
+    font-size: 20px;
+    display: inline-block;
+    text-align: center;
     background-color: transparent; 
     text-decoration: none;}
 
 .button {
     background-color: white;
-    border: 3px solid #886cab;
-    color: #886cab;
+    border: 3px solid #4A8994;
+    color: #4A8994;
     padding: 16px 32px;
     text-align: center;
     text-decoration: none;
@@ -51,15 +72,14 @@ h1.left {
     cursor: pointer;}
 
 .button:hover {
-    background-color: #886cab;
+    background-color: #4A8994;
     color: white;}
 
 .blocktext {
     margin-left: auto;
     margin-right: auto;
     text-align:justify;
-    width: 33em;}
-
+    width: 18em;}
 
 .footer {
     position: fixed;
@@ -73,12 +93,10 @@ h1.left {
     padding: 3px;
     font-size: 5px;}
 
-
-
 .labelset {
     background-color: white;
-    border: 2px solid #886cab;
-    color: #886cab;
+    border: 2px solid #4A8994;
+    color: #4A8994;
     padding: 8px 57px;
     text-align: center;
     text-decoration: none;
@@ -88,9 +106,9 @@ h1.left {
 
 
 .startbutton {
-    background-color: #886cab;
-    border: 3px solid #886cab;
-    color: white;
+    background-color: white;
+    border: 3px solid #4A8994;
+    color: #4A8994;
     padding: 8px 123px;
     text-align: center;
     text-decoration: none;
@@ -101,7 +119,7 @@ h1.left {
     cursor: pointer;}
  
 .startbutton:hover {
-    background-color: #5c4577;
+    background-color: #4A8994;
     color: white;}
 
 .aboutpart {
@@ -132,45 +150,45 @@ h1.left {
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);}
 
-    .dropbtn {
-        background-color: white;
-        color: #886cab;
-        padding: 8px 57px;
-        font-size: 16px;
-        text-align: center;
-        border: 2px solid #886cab;
-        margin: 4px 2px;
-        min-width: 286px;
-        max-width: 286px;
-        cursor: pointer;
-      }
-      
-      .dropdown {
-        position: relative;
-        display: inline-block;
-      }
-      
-      .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: #886cab;
-        color: white;
-        min-width: 286px;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        z-index: 1;
-      }
-    
-      
-      .dropdown-content :hover {
-        background-color: #5a4376;
-        color: white;
+.dropbtn {
+    background-color: white;
+    color: #4A8994;
+    padding: 8px 57px;
+    font-size: 16px;
+    text-align: center;
+    border: 2px solid #4A8994;
+    margin: 4px 2px;
+    min-width: 286px;
+    max-width: 286px;
+    cursor: pointer;
     }
       
-      .dropdown:hover .dropdown-content {
-        display: block;
-      }
+.dropdown {
+    position: relative;
+    display: inline-block;
+    }
       
-      .dropdown:hover .dropbtn {
-        background-color: #886cab;
-        color: white;
-      }
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #4A8994;
+    color: white;
+    min-width: 286px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    }
+    
+.dropdown-content :hover {
+    background-color: #4A8994;
+    color: white;
+    }
+      
+.dropdown:hover .dropdown-content {
+    display: block;
+    }
+      
+.dropdown:hover .dropbtn {
+    background-color: #4A8994;
+    color: white;
+    }
+
