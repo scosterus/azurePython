@@ -14,9 +14,7 @@
     var y = document.getElementById("email").value;
     var z = document.getElementById("password").value;
     var d = localStorage.getItem("code")
-    fetch("https://python-bigdata.azurewebsites.net/fits/" + v + "/" + w + "/" + x + "/" + y + "/" + z + "/" + d).then(data => {
-      console.log("test" + data)
-    })
+    fetch("https://python-bigdata.azurewebsites.net/fits/" + v + "/" + w + "/" + x + "/" + y + "/" + z + "/" + d)
   }
 
   function paginahome() {
