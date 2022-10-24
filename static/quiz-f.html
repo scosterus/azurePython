@@ -1,19 +1,18 @@
 <!doctype html>
 <html lang="en">
-
-<head>
-  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="Mystyle.css">
-  <title>SkillAPP</title>
-</head>
-<script>
-  function set_question() {
-    qid = localStorage.getItem("question");
-    // if all questions have been answered go to results page
-    if (qid == 11) {
-      onclick = window.location.href = 'fits-f.html';
-    } else {
-      fetch("https://python-bigdata.azurewebsites.net/quiz/" + qid)
+  <head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="Mystyle.css">
+    <title>SkillAPP</title>
+  </head>
+  <script>
+    function set_question() {
+      qid = localStorage.getItem("question");
+      // if all questions have been answered go to results page
+      if (qid == 11) {
+        onclick=window.location.href='fits-f.html';
+      } else {
+        fetch("http://127.0.0.1:5000/quiz/"+qid)
         .then(res => res.text()).then(data => {
           question = data
           split_question = question.split(';');
@@ -23,37 +22,50 @@
           document.getElementById("c").innerHTML = split_question[4];
           localStorage.setItem("question", parseInt(qid) + 1);
         });
+      }
     }
-  }
 
-  function paginafits() {
-    onclick = window.location.href = 'fits-f.html';
-  }
-</script>
+    function store_answer_a() {
+      let skill = localStorage.getItem("question") - 1;
+      let id = localStorage.getItem("id");
+      fetch("http://127.0.0.1:5000/answer/" + id + "/" + skill + "/" + 1)
+      set_question();
+    }
 
-<body>
-  <div class="navbar_colour">
+    function store_answer_b() {
+      skill = localStorage.getItem("question") - 1;
+      id = localStorage.getItem("id");
+      fetch("http://127.0.0.1:5000/answer/" + id + "/" + skill + "/" + 2);
+      set_question();
+    }
+
+    function store_answer_c() {
+      skill = localStorage.getItem("question") - 1;
+      id = localStorage.getItem("id");
+      fetch("http://127.0.0.1:5000/answer/" + id + "/" +skill + "/" + 3);
+      set_question();
+    }
+
+    function paginafits(){
+      onclick=window.location.href='fits-f.html';
+    }
+  </script>
+  <body>
+    <div class="navbar_colour">
     <nav>
-      <a style="font-family:Verdana" href="index-f.html" class="nav_button"><b>SkillAPP</b></a>
-      <a style="font-family:Verdana" href="about-f.html" class="right_style">About</a>
+      <a href="quiz-f.html" class="right_style">< Previous</a>
+      <a href="index-f.html" class="nav_button"><b>SkillAPP</b></a>
     </nav>
     <hr>
-  </div>
-  <div class="content">
-    <h1 style="font-family:Verdana" id="question">Your friends asks you if you'd like to sign up for a charity run with
-      them. What do you say?</h1>
-    <div class="centreren"><br><br>
-      <button type="button" id="a" onclick="set_question()" class="button button:hover" style="margin:15px;"
-        value="4">Absolutely!</button>
-      <button type="button" id="b" onclick="set_question()" class="button button:hover" style="margin:15px;"
-        value="5">If it's no more than 5 km, you'll consider it.</button>
-      <button type="button" id="c" onclick="set_question()" class="button button:hover" style="margin:15px;"
-        value="7">You'll cheer them on from the sidelines.</button>
     </div>
-  </div>
-  <div class="footer">
-    <p></p>
-  </div>
-</body>
-
+    <div class="centreren">
+        <h1 style="font-family:Verdana" id="question">Your friends asks you if you'd like to sign up for a charity run with them. What do you say?</h1>
+        <div class="centreren" style="overflow: hidden;"><br><br>
+            <button type="button" id="a" onclick="store_answer_a()" class="button button:hover" style="margin:15px;" value="4">Absolutely!</button>
+            <button type="button" id="b" onclick="store_answer_b()" class="button button:hover" style="margin:15px;" value="5">If it's no more than 5 km, you'll consider it.</button>
+            <button type="button" id="c" onclick="store_answer_c()" class="button button:hover" style="margin:15px;" value="7">You'll cheer them on from the sidelines.</button>
+            <!-- Waarom staat er style in de buttons? kan dat ook in de css file? 
+            Als we op deze manier de buttons de waarde door laten geven kan "value" weg toch? -->
+          </div>
+  </body>
 </html>
