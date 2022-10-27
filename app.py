@@ -107,17 +107,12 @@ def generated(id):
 
         counted_sports = collections.Counter(total_list_user).most_common()
 
-        top_3_sports = counted_sports[0:3]
-        top_10_sports = counted_sports[0:10]    
+        top_3_sports = counted_sports[0:3]  
         sport1 = "".join(top_3_sports[0][0])
         sport2 = "".join(top_3_sports[1][0])
         sport3 = "".join(top_3_sports[2][0])
 
         top_3_user = sport1 + "; " + sport2 + "; " + sport3
-        # print("1.", sport1)
-        # print("2.", sport2)
-        # print("3.", sport3)
-        # print(top_10_sports)
 
         return top_3_user
 
@@ -128,9 +123,9 @@ def generated(id):
 
 
 
-@app.route("/fits/<country>/<education>/<job>/<email>/<password>/<id>")
-def fits(country, education, job, email, password, id):
-    mycursor.execute("UPDATE users SET country = '%s', education = '%s', job = '%s', email = '%s', password = '%s' WHERE ID = %s" % (country, education, job, email, password, id))
+@app.route("/fits/<country>/<education>/<job>/<id>")
+def fits(country, education, job, id):
+    mycursor.execute("UPDATE users SET country = '%s', education = '%s', job = '%s' WHERE ID = %s" % (country, education, job, id))
     db.commit()
     print("fits added!")
     return 'fits.html'
