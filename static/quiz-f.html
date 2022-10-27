@@ -36,7 +36,7 @@
   function store_answer_b() {
     skill = localStorage.getItem("question") - 1;
     id = localStorage.getItem("id");
-    fetch("http://127.0.0.1:5000/answer/" + id + "/" + skill + "/" + 2);
+    fetch("https://python-bigdata.azurewebsites.net/answer/" + id + "/" + skill + "/" + 2);
     set_question();
   }
 
