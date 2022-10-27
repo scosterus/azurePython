@@ -97,7 +97,9 @@ h1.left {
     background-color: white;
     border: 2px solid #4A8994;
     color: #4A8994;
-    padding: 8px 57px;
+    padding: 8px;
+    min-width: 286px;
+    max-width: 286px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -109,7 +111,9 @@ h1.left {
     background-color: white;
     border: 3px solid #4A8994;
     color: #4A8994;
-    padding: 8px 123px;
+    padding: 8px;
+    min-width: 286px;
+    max-width: 286px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -153,7 +157,7 @@ h1.left {
 .dropbtn {
     background-color: white;
     color: #4A8994;
-    padding: 8px 57px;
+    padding: 8px;
     font-size: 16px;
     text-align: center;
     border: 2px solid #4A8994;

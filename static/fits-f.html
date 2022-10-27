@@ -4,18 +4,16 @@
 <head>
   <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="Mystyle.css">
-  <title>SkillAPP</title>
+  <title>Skillquiz</title>
 </head>
 <script>
   function fitslabels() {
     var v = document.getElementById("country").value;
     var w = document.getElementById("education").value;
     var x = document.getElementById("job").value;
-    var y = document.getElementById("email").value;
-    var z = document.getElementById("password").value;
     var d = localStorage.getItem("id");
     console.log("hoi")
-    fetch("https://python-bigdata.azurewebsites.net/fits/" + v + "/" + w + "/" + x + "/" + y + "/" + z + "/" + d)
+    fetch("https://python-bigdata.azurewebsites.net/fits/" + v + "/" + w + "/" + x + "/" + d)
     paginahome()
   }
   function begin() {
@@ -28,6 +26,7 @@
       .then(r => r.text())
       .then(d => {
         var sport = d.split(";")
+        var sport0 = document.getElementById("sporth").innerHTML = sport[0]
         var sport1 = document.getElementById("sport1").innerHTML = sport[0]
         var sport2 = document.getElementById("sport2").innerHTML = sport[1]
         var sport3 = document.getElementById("sport3").innerHTML = sport[2]
@@ -36,7 +35,7 @@
   }
 
   function paginahome() {
-    onclick = window.location.href = 'about-f.html';
+    onclick = window.location.href = 'index-f.html';
   }
 </script>
 
@@ -44,20 +43,20 @@
 
   <div class="navbar_colour">
     <nav>
-      <a style="font-family:Verdana" href="index-f.html" class="nav_button"><b>SkillAPP</b></a>
-      <a style="font-family:Verdana" href="about-f.html" class="right_style">About</a>
+      <a style="font-family:Verdana" href="index-f.html" class="nav_button"><b>Skillquiz</b></a>
+      <!-- <a style="font-family:Verdana" href="about-f.html" class="right_style">About</a> -->
     </nav>
     <hr>
   </div>
 
   <div class="centreren">
     <br>
-    <h1 id="sport1">*Generated sport*</h1><br>
+    <h1 id="sporth">*Generated sport*</h1><br>
   </div>
 
   <div class="blocktext">
-    <p>Is the sport that fits you the best. You have the perfect skills to become a pro in this categorie. Keep
-      improving this skills and work hard on it. Your top 3 sports are:
+    <p>Is the sport that fits you the best. You have the perfect skills to become a pro in this category. Keep improving
+      this skills and work hard on it. Your top 3 sports are:
     <ol>
       <li id="sport1">sport1</li>
       <li id="sport2">sport2</li>
@@ -340,7 +339,7 @@
       <option value="phyisical">Phyisical</option>
       <option value="mental">Mental</option>
     </select><br><br>
-    <input type="button" onclick="fitslabels();" class="startbutton startbutton:hover" value="Join">
+    <input type="button" onclick="fitslabels();" class="startbutton startbutton:hover" value="Join SkillAPP">
   </div><br><br><br><br>
 
 </body>
